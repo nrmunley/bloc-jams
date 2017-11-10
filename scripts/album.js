@@ -6,7 +6,7 @@ var albumPicasso = {
   year: '1881',
   albumArtURL: 'assets/images/album_covers/01.png',
   soungs: [
-        { title: 'Blue', duration: '4:26' },
+         { title: 'Blue', duration: '4:26' },
          { title: 'Green', duration: '3:14' },
          { title: 'Red', duration: '5:01' },
          { title: 'Pink', duration: '3:21'},
@@ -34,7 +34,7 @@ var albumMarconiII = {
     artist: 'Guglielmo Marconi',
     label: 'EM',
     year: '1910',
-    albumArtUrl: 'assets/images/album_covers/20.png',
+    albumArtUrl: 'assets/images/album_covers/02.png',
     songs: [
         { title: 'Are you there? Operator?', duration: '1:01' },
         { title: 'Ring, ring... Click', duration: '5:01' },
@@ -44,19 +44,19 @@ var albumMarconiII = {
     ]
 };
 
-var createSongRow = function (songNumber, songName, songLength){
+var createSongRow = function(songNumber, songName, songLength){
   var template =
     '<tr class="album-view-song-item">'
-    ' <td class="song-item-number">' + songNumber + '</td>'
-    ' <td class="song-item-title">' + songName + '</td>'
-    ' <td class="song-item-duration">' + songLength + '</td>'
-    '</tr>'
+    + ' <td class="song-item-number">' + songNumber + '</td>'
+    + ' <td class="song-item-title">' + songName + '</td>'
+    + ' <td class="song-item-duration">' + songLength + '</td>'
+    + '</tr>'
     ;
 
     return template;
 };
 
-var setCurrentAlbum = function (album) {
+var setCurrentAlbum = function(album) {
   var albumTitle = document.getElementsByClassName('album-view-title')[0];
   var albumArtist = document.getElementsByClassName('album-view-artist')[0];
   var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
