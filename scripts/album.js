@@ -93,8 +93,7 @@ window.onload = function() {
              this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
          });
      }
-
-  });
+  };
 
   var albums = [albumPicasso, albumMarconi, albumMarconiII];
   var index = 1;
@@ -104,5 +103,4 @@ window.onload = function() {
     if (index == albums.length){
       index = 0;
     }
-  })
-};
+  });
