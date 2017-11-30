@@ -129,11 +129,13 @@ var currentVolume = 80;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+var $playPauseBar = $('.main-controls .play-pause')
 
 $(document).ready(function() {
   setCurrentAlbum(albumPicasso);
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
+  $playPauseBar.click(togglePlayFromPlayerBar);
   });
 
   var albums = [albumPicasso, albumMarconi, albumMarconiII];
@@ -146,6 +148,22 @@ $(document).ready(function() {
       index = 0;
     }
   });
+
+  var togglePlayFromPlayerBar = function (){
+    var songNumber = parseInt($(this).attr('data-song-number'));
+
+      if (currentSoundFile.isPaused()) {
+          $(this).html(pauseButtonTemplate);
+          $('.main-controls .play-pause').html(playerBarPauseButton);
+          currentSoundFile.play();
+          songNumberCell.html(pauseButtonTemplate);
+      } else {
+          $(this).html(playButtonTemplate);
+          $('.main-controls .play-pause').html(playerBarPlayButton);
+          currentSoundFile.pause();
+          songNumberCell.html(playButtonTemplate);
+      }
+};
 
   var nextSong = function() {
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
