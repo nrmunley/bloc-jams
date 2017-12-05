@@ -228,18 +228,18 @@ $(document).ready(function() {
   });
 
   var togglePlayFromPlayerBar = function (){
-    var songNumber = parseInt($(this).attr('data-song-number'));
+     var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
 
       if (currentSoundFile.isPaused()) {
           $(this).html(pauseButtonTemplate);
           $('.main-controls .play-pause').html(playerBarPauseButton);
           currentSoundFile.play();
-          songNumberCell.html(pauseButtonTemplate);
+          currentlyPlayingCell.html(pauseButtonTemplate);
       } else {
           $(this).html(playButtonTemplate);
           $('.main-controls .play-pause').html(playerBarPlayButton);
           currentSoundFile.pause();
-          songNumberCell.html(playButtonTemplate);
+          currentlyPlayingCell.html(playButtonTemplate);
       }
 };
 
