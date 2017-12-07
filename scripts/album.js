@@ -123,10 +123,10 @@ var updateSeekBarWhileSongPlays = function() {
          currentSoundFile.bind('timeupdate', function(event) {
              var seekBarFillRatio = this.getTime() / this.getDuration();
              var $seekBar = $('.seek-control .seek-bar');
-
+             (setCurrentTimeInPlayerBar());
              updateSeekPercentage($seekBar, seekBarFillRatio);
          });
-     } setCurrentTimeInPlayerBar();
+     }
  };
 
 var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
@@ -200,12 +200,13 @@ var setCurrentTimeInPlayerBar = function (currentTime){
 
 var setTotalTimeInPlayerBar = function (totalTime){
   filterTimeCode($('.total-time').text(currentSoundFile.getDuration()));
-}
+};
 
 var filterTimeCode = function (timeInSeconds){
-  Math.floor(parseFloat(setCurrentTimeInPlayerBar));
-  Math.floor(parseFloat(setTotalTimeInPlayerBar));
-}
+  var seconds = Math.floor(parseFloat(timeInSeconds));
+  var minutes = Math.floor(seconds / 60);
+  return minutes + ":" + seconds;
+};
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
